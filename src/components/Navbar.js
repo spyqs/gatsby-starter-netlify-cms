@@ -1,40 +1,51 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
 
-const Navbar = () => (
-  <nav className="navbar is-transparent">
-    <div className="container">
-      <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
-          <figure className="image">
-            <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-          </figure>
-        </Link>
-      </div>
-      <div className="navbar-start">
-        <Link className="navbar-item" to="/about">
-          About
-        </Link>
-        <Link className="navbar-item" to="/products">
-          Products
-        </Link>
-      </div>
-      <div className="navbar-end">
-        <a
-          className="navbar-item"
-          href="https://github.com/AustinGreen/gatsby-netlify-cms-boilerplate"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="icon">
-            <img src={github} alt="Github" />
-          </span>
-        </a>
-      </div>
+import styled from "styled-components"
+
+const TitleLink = styled(Link)`
+    background-image: none;
+    font-size: 55px;
+    color: black;
+    margin-right: 10px;
+    min-height: 60px;
+`;
+
+const MenuLink = styled(Link)`
+  margin-right: 5px;
+  color: black;
+  margin-top: 5px;
+`
+
+const StyledNav = styled.nav`
+  display: flex ;
+  flex-direction: column ;
+  justify-content: center;
+  align-items: center;
+`
+
+const StyledH1 = styled.h6`
+  margin-top:5px;
+`
+
+const MenuLinks = styled.div`
+`
+
+const Navbar = (props) => (
+  <StyledNav>
+    <div>
+      <StyledH1>
+        <TitleLink to="/" style={{ textDecoration: 'none !important'}}>
+          {props.title}
+        </TitleLink>
+      </StyledH1>
     </div>
-  </nav>
+    <MenuLinks>
+      <MenuLink to="/about">About</MenuLink>
+      <MenuLink to="/products">Products</MenuLink>
+    </MenuLinks>
+  </StyledNav>
 )
 
 export default Navbar
