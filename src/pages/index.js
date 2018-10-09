@@ -10,6 +10,7 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
         <section className="section">
           <div className="container">
             <div className="content">
